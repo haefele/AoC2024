@@ -10,6 +10,7 @@ public class Day1 : IDay
         var input = await InputHelper.GetInput("Day1.txt");
         var (left, right) = ParseLists(input);
         
+        // Part 1
         left.Sort();
         right.Sort();
 
@@ -24,7 +25,23 @@ public class Day1 : IDay
             distanceSum += distance;
         }
 
-        Console.WriteLine(distanceSum);
+        Console.WriteLine($"Total distance between the two lists: {distanceSum}");
+
+        // Part 2
+        var rightListCounts = right.GroupBy(f => f).ToDictionary(f => f.Key, f => f.Count());
+
+        var similarityScore = 0;
+        for (int i = 0; i < left.Count; i++)
+        {
+            var leftValue = left[i];
+
+            if (rightListCounts.TryGetValue(leftValue, out var count))
+            {
+                similarityScore += leftValue * count;
+            }
+        }
+
+        Console.WriteLine($"Similarity score: {similarityScore}");
     }
 
     private static (List<int> left, List<int> right) ParseLists(string input)
