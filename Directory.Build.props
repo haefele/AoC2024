@@ -1,0 +1,12 @@
+<Project>
+  <PropertyGroup Label="Default-Properties">
+    <UseArtifactsOutput>true</UseArtifactsOutput>
+  </PropertyGroup>
+  
+  <PropertyGroup Label="Code-Style">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Nullable>enable</Nullable>
+    <AnalysisMode>Recommended</AnalysisMode>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+</Project>
