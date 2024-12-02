@@ -1,3 +1,3 @@
 ﻿using AoC2024;
 
-await new Day1().Execute();
+await new Day2().Execute();
