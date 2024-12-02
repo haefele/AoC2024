@@ -15,6 +15,21 @@ public class Day2 : IDay
             .Count();
 
         Console.WriteLine($"Valid report count is {validReportCount}");
+
+        // Part 2
+        var validReportCount2 = 0;
+        foreach (var report in reports)
+        {
+            var permutations = GetPremutations(report);
+            var validPermutations = permutations
+                .Where(p => (IsIncreasing(p) || IsDecreasing(p)) && DistancesAreCorrect(p))
+                .ToList();
+
+            if (validPermutations.Count > 0)
+            {
+                validReportCount2++;
+            }
+        }
     }
 
     
@@ -59,6 +74,11 @@ public class Day2 : IDay
         }
 
         return true;
+    }
+
+    private static List<List<int>> GetPremutations(List<int> report)
+    {
+        throw new NotImplementedException();
     }
 
     private static List<List<int>> ParseInput(string input)
